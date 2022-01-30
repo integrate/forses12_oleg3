@@ -6,12 +6,18 @@ def add_mario(x,y,speed):
     f={'id':id,'speed':speed}
     return f
 
-def move_mario_y(mario):
+def move_mario_y(mario,ground):
 
-    x,y=sprite.get_pos(mario['id'])
-    if y<=580:
+
+    y=sprite.get_bottom(mario['id'])
+    if y<=ground:
         sprite.move(mario['id'],0,mario['speed'])
         mario['speed']+=1
-        x, y = sprite.get_pos(mario['id'])
-    if y >= 580:
-        sprite.move_to(mario['id'], x, 580)
+        y = sprite.get_bottom(mario['id'])
+    if y >= ground:
+        sprite.move_bottom_to(mario['id'], ground)
+
+def prizok(mario,ground):
+    mario['speed']=-10
+    ground=sprite.get_top(ground)
+    # move_mario_y(mario,ground)
