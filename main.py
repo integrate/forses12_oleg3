@@ -2,25 +2,53 @@ import wrap
 from wrap import sprite
 import mario
 
-wrap.world.create_world(1337,758,0,25)
+wrap.world.create_world(1337, 758, 0, 25)
 wrap.world.set_back_image('mario.png')
 
-m=sprite.add('mario-items',500,400,'block_bricks')
-n=sprite.add('mario-items',100,500,'block_bricks')
+m = sprite.add('mario-items', 500, 400, 'block_bricks')
+n = sprite.add('mario-items', 100, 500, 'block_bricks')
 
-mario_1=mario.add_mario(500,600,1)
-mario_2=mario.add_mario(100,400,-10)
-#mario.move_mario_y(mario_1)
-#mario.move_mario_y(mario_2)
+mario_1 = mario.add_mario(500, 600, 1)
+mario_2 = mario.add_mario(100, 400, -10)
+
+
+# mario.move_mario_y(mario_1)
+# mario.move_mario_y(mario_2)
 
 @wrap.always()
-def move ():
-    mario.move_mario_y(mario_1,sprite.get_top(m))
-    mario.move_mario_y(mario_2,sprite.get_top(n))
+def move():
+    mario.move_mario_y(mario_1, sprite.get_top(m))
+    mario.move_mario_y(mario_2, sprite.get_top(n))
+
 
 @wrap.on_key_down(wrap.K_w)
 def prizok():
-    mario.prizok(mario_1,m)
+    mario.prizok(mario_1, m)
+
+
+@wrap.on_key_down(wrap.K_UP)
+def prizok():
+    mario.prizok(mario_2, n)
+
+
+@wrap.on_key_always(wrap.K_d)
+def go():
+    mario.go_x(mario_1, 'right')
+
+
+@wrap.on_key_always(wrap.K_a)
+def go():
+    mario.go_x(mario_1, "left")
+
+
+@wrap.on_key_always(wrap.K_RIGHT)
+def go():
+    mario.go_x(mario_2, "right")
+
+
+@wrap.on_key_always(wrap.K_LEFT)
+def go():
+    mario.go_x(mario_2, "left")
 
 #
 #
