@@ -1,6 +1,6 @@
 import wrap
 from wrap import sprite
-import mario
+import mario, mario_costume, dragon_costume
 
 wrap.world.create_world(1337, 758, 0, 25)
 wrap.world.set_back_image('mario.png')
@@ -8,8 +8,8 @@ wrap.world.set_back_image('mario.png')
 m = sprite.add('mario-items', 500, 400, 'block_bricks')
 n = sprite.add('mario-items', 100, 500, 'block_bricks')
 
-mario_1 = mario.add_mario(500, 600, 1)
-mario_2 = mario.add_mario(100, 400, -10)
+mario_1 = mario.add_mario(500, 600, 1, 'mario-2-big', 'stand', mario_costume)
+mario_2 = mario.add_mario(100, 400, -10, 'mario-enemies', 'dragon_stand1', dragon_costume)
 
 
 # mario.move_mario_y(mario_1)
