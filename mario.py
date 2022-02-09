@@ -1,6 +1,8 @@
 import wrap
 from wrap import sprite
 
+import mario_costume
+
 
 def add_mario(x, y, speed, path, costum, mod):
     id = sprite.add(path, x, y, costum)
@@ -32,5 +34,10 @@ def prizok(mario, ground):
 def go_x(mario, side):
     if side == 'right':
         sprite.move(mario['id'], 3, 0)
+        mario['mod_costum'].look_right(mario,)
+
     elif side == 'left':
         sprite.move(mario['id'], -3, 0)
+        mario['mod_costum'].look_left(mario,)
+    mario['mod_costum'].animation_go(mario)
+
