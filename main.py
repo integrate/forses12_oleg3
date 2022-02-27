@@ -5,10 +5,16 @@ import mario, mario_costume, dragon_costume
 wrap.world.create_world(1337, 758, 0, 25)
 wrap.world.set_back_image('mario.png')
 
-m = sprite.add('mario-items', 500, 400, 'block_bricks')
-n = sprite.add('mario-items', 100, 500, 'block_bricks')
 
-mario_1 = mario.add_mario(500, 600, 1, 'mario-2-big', 'stand', mario_costume)
+m = sprite.add('mario-items', 500, 500, 'block_bricks')
+n = sprite.add('mario-items', 100, 500, 'block_bricks')
+h=sprite.add('mario-items',500, 270, 'block_bricks')
+h=sprite.add('mario-items',500, 600, 'block_bricks')
+j=sprite.add('mario-items',100, 460, 'block_bricks')
+k=sprite.add('mario-items',650, 460, 'block_bricks')
+
+0
+mario_1 = mario.add_mario(500, 400, 0, 'mario-2-big', 'stand', mario_costume)
 mario_2 = mario.add_mario(100, 400, -10, 'mario-enemies', 'dragon_stand1', dragon_costume)
 
 
@@ -49,6 +55,12 @@ def go():
 @wrap.on_key_always(wrap.K_LEFT)
 def go():
     mario.go_x(mario_2, "left")
+
+@wrap.on_key_always(wrap.K_SPACE)
+def go():
+    mario_1['speed']-=2
+
+
 
 #
 #

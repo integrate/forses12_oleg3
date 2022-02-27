@@ -12,14 +12,15 @@ def add_mario(x, y, speed, path, costum, mod):
 
 def move_mario_y(mario, ground):
     y = sprite.get_bottom(mario['id'])
-    if y <= ground:
-        sprite.move(mario['id'], 0, mario['speed'])
+    sprite.move(mario['id'], 0, mario['speed'])
+    if y < ground:
         mario['speed'] += 1
+        print(mario['speed'])
         y = sprite.get_bottom(mario['id'])
-    if y >= ground:
+    if y > ground:
         sprite.move_bottom_to(mario['id'], ground)
         mario['mod_costum'].set_costum_stand(mario)
-
+        mario['speed']=0
 
 def prizok(mario, ground):
     y = sprite.get_bottom(mario['id'])
@@ -28,7 +29,6 @@ def prizok(mario, ground):
         mario['speed'] = -10
         mario['mod_costum'].set_costum_jump(mario)
 
-    # move_mario_y(mario,ground)
 
 
 def go_x(mario, side):
