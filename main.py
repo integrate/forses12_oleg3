@@ -9,32 +9,33 @@ wrap.world.set_back_image('mario.png')
 m = sprite.add('mario-items', 500, 500, 'block_bricks')
 n = sprite.add('mario-items', 100, 500, 'block_bricks')
 h=sprite.add('mario-items',500, 270, 'block_bricks')
-h=sprite.add('mario-items',500, 600, 'block_bricks')
+l=sprite.add('mario-items',500, 600, 'block_bricks')
 j=sprite.add('mario-items',100, 460, 'block_bricks')
 k=sprite.add('mario-items',650, 460, 'block_bricks')
+v=[m,n,h,l,j,k]
 
 0
 mario_1 = mario.add_mario(500, 400, 0, 'mario-2-big', 'stand', mario_costume)
 mario_2 = mario.add_mario(100, 400, -10, 'mario-enemies', 'dragon_stand1', dragon_costume)
-
+mario.found_ground(mario_1,v)
 
 # mario.move_mario_y(mario_1)
 # mario.move_mario_y(mario_2)
 
 @wrap.always()
 def move():
-    mario.move_mario_y(mario_1, sprite.get_top(m))
-    mario.move_mario_y(mario_2, sprite.get_top(n))
+    mario.move_mario_y(mario_1, 400)
+    mario.move_mario_y(mario_2, 400)
 
 
 @wrap.on_key_down(wrap.K_w)
 def prizok():
-    mario.prizok(mario_1, m)
+    mario.prizok(mario_1, 400)
 
 
 @wrap.on_key_down(wrap.K_UP)
 def prizok():
-    mario.prizok(mario_2, n)
+    mario.prizok(mario_2, 400)
 
 
 @wrap.on_key_always(wrap.K_d)

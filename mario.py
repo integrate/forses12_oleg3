@@ -24,7 +24,7 @@ def move_mario_y(mario, ground):
 
 def prizok(mario, ground):
     y = sprite.get_bottom(mario['id'])
-    ground = sprite.get_top(ground)
+
     if y == ground:
         mario['speed'] = -10
         mario['mod_costum'].set_costum_jump(mario)
@@ -41,3 +41,9 @@ def go_x(mario, side):
         mario['mod_costum'].look_left(mario,)
     mario['mod_costum'].animation_go(mario)
 
+def found_ground(mario,bloks):
+    for r in bloks:
+        a=sprite.get_y(mario['id'])
+        s=sprite.get_y(r)
+        if a>s:
+            sprite.remove(r)
