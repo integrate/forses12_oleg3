@@ -15,7 +15,7 @@ k=sprite.add('mario-items',650, 460, 'block_bricks')
 v=[m,n,h,l,j,k]
 
 0
-mario_1 = mario.add_mario(500, 400, 0, 'mario-2-big', 'stand', mario_costume)
+mario_1 = mario.add_mario(501, 400, 0, 'mario-2-big', 'stand', mario_costume)
 mario_2 = mario.add_mario(100, 400, -10, 'mario-enemies', 'dragon_stand1', dragon_costume)
 mario.found_ground(mario_1,v)
 

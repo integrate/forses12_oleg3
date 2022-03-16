@@ -43,7 +43,15 @@ def go_x(mario, side):
 
 def found_ground(mario,bloks):
     for r in bloks:
-        a=sprite.get_y(mario['id'])
-        s=sprite.get_y(r)
-        if a>s:
+        a=sprite.get_left(mario['id'])
+        s=sprite.get_right(mario['id'])
+        e=sprite.get_y(mario['id'])
+        d=sprite.get_left(r)
+        f=sprite.get_right(r)
+        t=sprite.get_y(r)
+        if s<d :
+            sprite.remove(r)
+        elif a>f:
+            sprite.remove(r)
+        elif e>t:
             sprite.remove(r)
