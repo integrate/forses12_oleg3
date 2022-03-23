@@ -28,5 +28,3 @@ def animation_go(mario):
         y = sprite.get_bottom(mario['id'])
         sprite.set_costume(mario['id'], 'dragon_stand2')
         sprite.move_bottom_to(mario['id'], y)
-
-
