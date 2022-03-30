@@ -16,6 +16,8 @@ v = [m, n, h, l, j, k]
 mario_1 = mario.add_mario(800, 400, 0, 'mario-2-big', 'stand', mario_costume, v)
 mario_2 = mario.add_mario(100, 400, -10, 'mario-enemies', 'dragon_stand1', dragon_costume, v)
 
+v.append(mario_1['id'])
+v.append(mario_2['id'])
 
 # mario.move_mario_y(mario_1)
 # mario.move_mario_y(mario_2)

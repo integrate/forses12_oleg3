@@ -34,25 +34,34 @@ def prizok(mario):
 
 
 def go_x(mario, side):
+    bloks = mario['grounds'].copy()
+    if mario['id'] in bloks:
+        bloks.remove(mario['id'])
     if side == 'right':
         sprite.move(mario['id'], 3, 0)
+        if sprite.is_collide_all(mario['id'],bloks):
+            sprite.move(mario['id'], -3, 0)
         mario['mod_costum'].look_right(mario, )
 
     elif side == 'left':
         sprite.move(mario['id'], -3, 0)
+        if sprite.is_collide_all(mario['id'],bloks):
+            sprite.move(mario['id'], 3, 0)
         mario['mod_costum'].look_left(mario, )
     mario['mod_costum'].animation_go(mario)
     mario['help']=found_ground(mario,mario['grounds'])
 
 def found_ground(mario, bloks):
     bloks = bloks.copy()
+    if mario['id'] in bloks:
+        bloks.remove(mario['id'])
     for r in bloks.copy():
         a = sprite.get_left(mario['id'])
         s = sprite.get_right(mario['id'])
-        e = sprite.get_y(mario['id'])
+        e = sprite.get_bottom(mario['id'])
         d = sprite.get_left(r)
         f = sprite.get_right(r)
-        t = sprite.get_y(r)
+        t = sprite.get_top(r)
         if s < d:
             # sprite.remove(r)
             bloks.remove(r)

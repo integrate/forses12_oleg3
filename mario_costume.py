@@ -1,13 +1,13 @@
 import wrap
 from wrap import sprite
-
+import costume_helper
 
 def set_costum_jump(mario):
-    sprite.set_costume(mario['id'], 'jump')
+    costume_helper.change_costume(mario['id'],'jump')
 
 
 def set_costum_stand(mario):
-    sprite.set_costume(mario['id'], 'stand')
+    costume_helper.change_costume(mario['id'], 'stand')
 
 
 def look_right(mario):
@@ -21,15 +21,10 @@ def look_left(mario):
 def animation_go(mario):
     c = sprite.get_costume(mario['id'])
     if c == 'stand' or c == 'walk3':
-        y = sprite.get_bottom(mario['id'])
-        sprite.set_costume(mario['id'], 'walk1')
-        sprite.move_bottom_to(mario['id'], y)
+        costume_helper.change_costume(mario['id'], 'walk1')
+
     elif c == 'walk1':
-        y = sprite.get_bottom(mario['id'])
-        sprite.set_costume(mario['id'], 'walk2')
-        sprite.move_bottom_to(mario['id'], y)
+        costume_helper.change_costume(mario['id'], 'walk2')
 
     elif c == 'walk2':
-        y = sprite.get_bottom(mario['id'])
-        sprite.set_costume(mario['id'], 'walk3')
-        sprite.move_bottom_to(mario['id'], y)
+        costume_helper.change_costume(mario['id'], 'walk3')
