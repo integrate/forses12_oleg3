@@ -1,6 +1,7 @@
 import wrap
 from wrap import sprite
 import mario, mario_costume, dragon_costume
+import bloks
 
 wrap.world.create_world(1337, 758, 0, 25)
 wrap.world.set_back_image('mario.png')
@@ -63,7 +64,15 @@ def go():
 def go():
     mario_1['speed'] -= 2
 
-#
+def go_camera(speed):
+    for r in v:
+        sprite.move(r,speed,0)
+
+@wrap.always()
+def go():
+    go_camera(-3)
+
+bloks.baka()
 #
 # rf = 9807
 # t = True
