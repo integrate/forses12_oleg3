@@ -71,8 +71,10 @@ def go_camera(speed):
 @wrap.always()
 def go():
     go_camera(-3)
+    t=bloks.baka()
+    if t!=None:
+        v.append(t)
 
-bloks.baka()
 #
 # rf = 9807
 # t = True
@@ -104,3 +106,5 @@ bloks.baka()
 #
 # for y in v:
 #     print(y['age'], y['name'])
+import wrap_py
+wrap_py.app.start()
