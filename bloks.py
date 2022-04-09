@@ -4,7 +4,7 @@ import time
 time1=time.time()
 
 def add_blok():
-    blok=wrap.sprite.add('mario-items', 500, 500, 'block_bricks')
+    blok=wrap.sprite.add('mario-items',1300, 500, 'block_bricks')
     return blok
 
 def baka():
