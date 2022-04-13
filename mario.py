@@ -1,7 +1,4 @@
-
 from wrap import sprite
-
-
 
 
 def add_mario(x, y, speed, path, costum, mod, grounds):
@@ -39,17 +36,18 @@ def go_x(mario, side):
         bloks.remove(mario['id'])
     if side == 'right':
         sprite.move(mario['id'], 3, 0)
-        if sprite.is_collide_all(mario['id'],bloks):
+        if sprite.is_collide_all(mario['id'], bloks):
             sprite.move(mario['id'], -3, 0)
         mario['mod_costum'].look_right(mario, )
 
     elif side == 'left':
         sprite.move(mario['id'], -3, 0)
-        if sprite.is_collide_all(mario['id'],bloks):
+        if sprite.is_collide_all(mario['id'], bloks):
             sprite.move(mario['id'], 3, 0)
         mario['mod_costum'].look_left(mario, )
     mario['mod_costum'].animation_go(mario)
-    mario['help']=found_ground(mario,mario['grounds'])
+    mario['help'] = found_ground(mario, mario['grounds'])
+
 
 def found_ground(mario, bloks):
     bloks = bloks.copy()

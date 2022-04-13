@@ -2,6 +2,7 @@ import wrap
 from wrap import sprite
 import costume_helper
 
+
 def set_costum_jump(mario):
     costume_helper.change_costume(mario['id'], 'dragon_throw1')
 
