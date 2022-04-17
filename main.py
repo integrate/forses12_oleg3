@@ -1,6 +1,6 @@
 import wrap
 from wrap import sprite
-import mario, mario_costume, dragon_costume,costume_helper
+import mario, mario_costume, dragon_costume, costume_helper
 import bloks
 
 wrap.world.create_world(1337, 758, 0, 25)
@@ -22,22 +22,34 @@ mario_2 = mario.add_mario(100, 400, -10, 'mario-enemies', 'dragon_stand1', drago
 
 v.append(mario_1['id'])
 
-lava=sprite.add('lava',668,600,'lava')
-sprite.move_bottom_to(lava,758)
+lava = sprite.add('lava', 668, 600, 'lava')
+sprite.move_bottom_to(lava, 758)
 # mario.move_mario_y(mario_1)
 # mario.move_mario_y(mario_2)
 
+f = None
+
+
 @wrap.always()
 def move():
-    if sprite.get_bottom(mario_1['id'])<620:
+    global f
+    if sprite.get_bottom(mario_1['id']) < 600:
+        mario.move_mario_y(mario_2)
         mario.move_mario_y(mario_1)
-    mario.move_mario_y(mario_2)
-    if sprite.get_bottom(mario_1['id'])>=620:
-        sprite.move(mario_1["id"],0,1)
+    if sprite.get_bottom(mario_1['id']) > 600 and len(hell.hell) > 1:
+        sprite.move_to(mario_1["id"], 800, 100)
+        heart = hell.hell.pop()
+        sprite.remove(heart)
+
+    elif sprite.get_bottom(mario_1['id']) >= 600 and len(hell.hell) == 1:
+        sprite.move(mario_1["id"], 0, 1)
+        print(sprite.get_bottom(mario_1['id']))
         costume_helper.change_costume(mario_1['id'], 'jump')
-        if len(hell.hell)>0 and sprite.get_top(mario_1['id'])>620:
-            sprite.move_to(mario_1["id"],800,100)
-            heart=hell.hell.pop()
+        if f == None:
+            f = sprite.add_text("i'll be back", sprite.get_x(mario_1['id']), 580, font_size=20)
+
+        if sprite.get_top(mario_1['id']) >= 600:
+            heart = hell.hell.pop()
             sprite.remove(heart)
 
 
@@ -93,9 +105,9 @@ def go():
                     sprite.remove(s)
                     v.remove(s)
 
+
 # @wrap.always()
 # def dead():
-
 
 
 #

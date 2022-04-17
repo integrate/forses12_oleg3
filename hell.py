@@ -5,7 +5,7 @@ import bloks
 
 
 def add_heart(x, y):
-    id=sprite.add('hell', x, y, 'сердце1')
+    id = sprite.add('hell', x, y, 'сердце1')
     return id
 
 
