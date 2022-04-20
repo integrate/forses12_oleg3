@@ -1,4 +1,5 @@
 from wrap import sprite
+import costume_helper
 
 
 def add_mario(x, y, speed, path, costum, mod, grounds):
@@ -20,6 +21,22 @@ def move_mario_y(mario):
         mario['mod_costum'].set_costum_stand(mario)
         mario['speed'] = 0
     mario['help'] = found_ground(mario, mario['grounds'])
+
+def move_mario_y_this_dead(mario,teleport):
+    if sprite.get_bottom(mario['id'])<600:
+        move_mario_y(mario)
+    elif sprite.get_bottom(mario['id'])>600 and teleport == True:
+        sprite.move_to(mario['id'], 800, 100)
+    elif sprite.get_bottom(mario['id'])>600 and teleport == False:
+        sprite.move(mario["id"], 0, 1)
+
+
+
+
+
+
+#     if teleport == True :
+#         sprite.move_to()
 
 
 def prizok(mario):
