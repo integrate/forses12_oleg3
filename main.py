@@ -27,32 +27,34 @@ sprite.move_bottom_to(lava, 758)
 # mario.move_mario_y(mario_1)
 # mario.move_mario_y(mario_2)
 
-f = None
+# f = True
 
 
 @wrap.always()
 def move():
-    # global f
-    # if sprite.get_bottom(mario_1['id']) < 600:
-    #     mario.move_mario_y(mario_2)
-    #     mario.move_mario_y(mario_1)
-    # if sprite.get_bottom(mario_1['id']) > 600 and len(hell.hell) > 1:
-    #     sprite.move_to(mario_1["id"], 800, 100)
-    #     heart = hell.hell.pop()
-    #     sprite.remove(heart)
-    #
-    # elif sprite.get_bottom(mario_1['id']) >= 600 and len(hell.hell) == 1:
-    #     sprite.move(mario_1["id"], 0, 1)
-    #     print(sprite.get_bottom(mario_1['id']))
-    #     costume_helper.change_costume(mario_1['id'], 'jump')
-    #     if f == None:
-    #         f = sprite.add_text("i'll be back", sprite.get_x(mario_1['id']), 580, font_size=20)
-    #
-    #     if sprite.get_top(mario_1['id']) >= 600:
-    #         heart = hell.hell.pop()
-    #         sprite.remove(heart)
-    mario.move_mario_y_this_dead(mario_1,True)
-    mario.move_mario_y_this_dead(mario_2,False)
+    g = mario.move_mario_y_this_dead(mario_1, len(hell.hell)>1)
+    if g!='move_y' and len(hell.hell)>0:
+        a = hell.hell.pop()
+        sprite.remove(a)
+
+# def move():
+#     global f
+#
+#     g=mario.move_mario_y_this_dead(mario_1,f)
+#     h=mario.move_mario_y_this_dead(mario_2,f)
+#     if g=='move_y' and len(hell.hell)>1:
+#         f=True
+#     elif g=="teleport" and len(hell.hell)>1:
+#         f=True
+#         a=hell.hell.pop()
+#         sprite.remove(a)
+#     elif  len(hell.hell)==1:
+#         f=False
+#         if  g=='dead':
+#             a = hell.hell.pop()
+#             sprite.remove(a)
+
+
 
 
 @wrap.on_key_down(wrap.K_w)

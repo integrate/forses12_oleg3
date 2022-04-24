@@ -7,6 +7,7 @@ def add_mario(x, y, speed, path, costum, mod, grounds):
     f = {'id': id, 'speed': speed, 'mod_costum': mod, 'grounds': grounds}
     mario_1_ground = found_ground(f, grounds)
     f['help'] = mario_1_ground
+    f['text'] = None
     return f
 
 
@@ -25,10 +26,13 @@ def move_mario_y(mario):
 def move_mario_y_this_dead(mario,teleport):
     if sprite.get_bottom(mario['id'])<600:
         move_mario_y(mario)
+        return 'move_y'
     elif sprite.get_bottom(mario['id'])>600 and teleport == True:
         sprite.move_to(mario['id'], 800, 100)
+        return 'teleport'
     elif sprite.get_bottom(mario['id'])>600 and teleport == False:
         sprite.move(mario["id"], 0, 1)
+        return 'dead'
 
 
 
