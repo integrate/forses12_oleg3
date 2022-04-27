@@ -6,6 +6,9 @@ import bloks
 wrap.world.create_world(1337, 758, 0, 25)
 wrap.add_sprite_dir('sprite')
 import hell
+import time1
+
+
 
 wrap.world.set_back_image('img.png')
 
@@ -32,6 +35,8 @@ sprite.move_bottom_to(lava, 758)
 
 @wrap.always()
 def move():
+    time1.time2()
+    time1.text()
     g = mario.move_mario_y_this_dead(mario_1, len(hell.hell)>1)
     if g!='move_y' and len(hell.hell)>0:
         a = hell.hell.pop()
